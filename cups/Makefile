@@ -10,7 +10,7 @@ include $(TOPDIR)/rules.mk
 
 PKG_NAME:=cups
 PKG_VERSION:=2.3.3
-PKG_RELEASE:=12
+PKG_RELEASE:=22
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-source.tar.gz
 PKG_SOURCE_URL:=https://github.com/apple/cups/releases/download/v$(PKG_VERSION)
@@ -30,7 +30,7 @@ define Package/cups
 $(call Package/cups/Default)
   SECTION:=net
   CATEGORY:=Network
-  DEPENDS:=+libcups +libcupsmime  +libcupscgi +libcupsppdc +libusb-1.0
+  DEPENDS:=+libcups +libcupsmime  +libcupscgi +libcupsppdc +libusb-1.0 +libavahi-client +libavahi-common
   TITLE:=Common UNIX Printing System (daemon)
 endef
 

@@ -31,7 +31,7 @@ define Package/libcups
 $(call Package/cups/Default)
   SECTION:=libs
   CATEGORY:=Libraries
-  DEPENDS:=+zlib +libpthread +libpng +libjpeg +libusb-1.0
+  DEPENDS:=+zlib +libpthread +libpng +libjpeg +libusb-1.0 +libavahi-client +libavahi-common
   TITLE:=Common UNIX Printing System - Core library
   BUILDONLY:=1
 endef
