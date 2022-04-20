@@ -8,19 +8,12 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=aMule
-PKG_VERSION:=2.3.3
-PKG_RELEASE:=34
-PKG_REV=4b87b20
 
 
-PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION)-r$(PKG_REV).tar.bz2
-PKG_SOURCE_SUBDIR:=$(PKG_NAME)-$(PKG_VERSION)
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_VERSION:=e26d06a6eeaf37c716a88a47890cb85b931a0538
-PKG_SOURCE_URL:=https://github.com/amule-project/amule.git
-PKG_MIRROR_HASH:=skip
+PKG_SOURCE_VERSION:=9306c350d30975f24925441b3194f909f71a2db0
+PKG_SOURCE_URL:=https://github.com/youkechat/amule.git
 
-PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
 PKG_BUILD_DEPENDS:=libgd libcryptopp
 
 include $(INCLUDE_DIR)/package.mk
