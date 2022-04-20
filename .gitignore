@@ -1,5 +1,4 @@
-Makefile
-feeds/
-kernel/
-libs/
-toolchain/
+feeds
+kernel
+libs
+toolchain
