@@ -46,7 +46,7 @@ endef
 
 define Package/msmtp
 $(call Package/msmtp/Default)
-  DEPENDS+= +libgnutls +ca-bundle
+  DEPENDS+= +libgnutls +ca-bundle +libcrypto +libssl
   TITLE+= (with SSL support)
   VARIANT:=ssl
   DEFAULT_VARIANT:=1
@@ -59,18 +59,6 @@ endef
 define Package/msmtp/description
 $(call Package/msmtp/Default/description)
  This package is built with SSL support.
-endef
-
-define Package/msmtp-nossl
-$(call Package/msmtp/Default)
-  TITLE+= (without SSL support)
-  VARIANT:=nossl
-  PROVIDES:=msmtp
-endef
-
-define Package/msmtp-nossl/description
-$(call Package/msmtp/Default/description)
- This package is built without SSL support.
 endef
 
 define Package/msmtp-mta
@@ -106,13 +94,7 @@ CONFIGURE_ARGS += \
 	--without-libidn \
 	--without-libsecret \
 	--without-macosx-keyring \
-	--without-msmtpd
-
-ifeq ($(BUILD_VARIANT),ssl)
-	CONFIGURE_ARGS += --with-tls=openssl
-else
-	CONFIGURE_ARGS += --without-tls
-endif
+	--without-msmtpd \
 
 define Package/msmtp/install
 	$(INSTALL_DIR) $(1)/etc
@@ -136,6 +118,5 @@ define Package/msmtp-queue/install
 endef
 
 $(eval $(call BuildPackage,msmtp))
-$(eval $(call BuildPackage,msmtp-nossl))
 $(eval $(call BuildPackage,msmtp-queue))
 $(eval $(call BuildPackage,msmtp-mta))
