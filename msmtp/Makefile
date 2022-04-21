@@ -46,7 +46,7 @@ endef
 
 define Package/msmtp
 $(call Package/msmtp/Default)
-  DEPENDS+= +libgnutls +ca-bundle +libcrypto +libssl
+  DEPENDS+= +libgnutls +ca-bundle +libopenssl
   TITLE+= (with SSL support)
   VARIANT:=ssl
   DEFAULT_VARIANT:=1
@@ -95,6 +95,7 @@ CONFIGURE_ARGS += \
 	--without-libsecret \
 	--without-macosx-keyring \
 	--without-msmtpd \
+	--with-tls=openssl
 
 define Package/msmtp/install
 	$(INSTALL_DIR) $(1)/etc
